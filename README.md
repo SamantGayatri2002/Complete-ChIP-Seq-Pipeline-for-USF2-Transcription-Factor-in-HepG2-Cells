@@ -183,7 +183,7 @@ Enriched pathways include:
 
 ---
 
-# 🔗 **Important Direct Links (replace with your GitHub paths)**
+# 🔗 **Important Direct Links **
 
 ### 📁 **Peak Files**
 
