@@ -1,1 +1,1 @@
-# ChIP-Seq-Pipeline-and-Analysis-for-USF2-Transcription-Factor-HepG2-
+# ChIP-Seq-Pipeline-for-USF2-Transcription-Factor-in-HepG2-cells
