@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Session genome="hg38" locus="chr12:57752339-57752461" version="8">
+    <Resources>
+        <Resource path="\\wsl.localhost\Ubuntu\home\shobita\GSE104247\visualization\USF2_vs_INPUT_log2.bw" type="bw"/>
+        <Resource path="\\wsl.localhost\Ubuntu\home\shobita\GSE104247\visualization\USF2.bw" type="bw"/>
+        <Resource path="\\wsl.localhost\Ubuntu\home\shobita\GSE104247\bam\USF2_peaks.bed" type="bed"/>
+        <Resource path="\\wsl.localhost\Ubuntu\home\shobita\GSE104247\visualization\INPUT.bw" type="bw"/>
+    </Resources>
+    <Panel height="346" name="DataPanel" width="1517">
+        <Track attributeKey="USF2.bw" autoScale="true" clazz="org.broad.igv.track.DataSourceTrack" colorScale="ContinuousColorScale;0.0;7.414980411529541;255,255,255;0,0,178" fontSize="10" height="82" id="\\wsl.localhost\Ubuntu\home\shobita\GSE104247\visualization\USF2.bw" name="USF2.bw" renderer="BAR_CHART" visible="true" windowFunction="mean">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="630.656" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="INPUT.bw" autoScale="true" clazz="org.broad.igv.track.DataSourceTrack" fontSize="10" height="82" id="\\wsl.localhost\Ubuntu\home\shobita\GSE104247\visualization\INPUT.bw" name="INPUT.bw" renderer="DYNSEQ" visible="true" windowFunction="mean">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="21.9779" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="USF2_vs_INPUT_log2.bw" autoScale="true" clazz="org.broad.igv.track.DataSourceTrack" fontSize="10" height="82" id="\\wsl.localhost\Ubuntu\home\shobita\GSE104247\visualization\USF2_vs_INPUT_log2.bw" name="USF2_vs_INPUT_log2.bw" renderer="BAR_CHART" visible="true" windowFunction="mean">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="5.14112" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="USF2_peaks.bed" clazz="org.broad.igv.track.FeatureTrack" colorScale="ContinuousColorScale;0.0;116.0;255,255,255;0,0,178" fontSize="10" groupByStrand="false" height="82" id="\\wsl.localhost\Ubuntu\home\shobita\GSE104247\bam\USF2_peaks.bed" name="USF2_peaks.bed" visible="true"/>
+    </Panel>
+    <Panel height="227" name="FeaturePanel" width="1517">
+        <Track attributeKey="Reference sequence" clazz="org.broad.igv.track.SequenceTrack" fontSize="10" height="82" id="Reference sequence" name="Reference sequence" sequenceTranslationStrandValue="+" shouldShowTranslation="false" visible="true"/>
+        <Track attributeKey="Refseq Select" clazz="org.broad.igv.track.FeatureTrack" colorScale="ContinuousColorScale;0.0;127.0;255,255,255;0,0,178" fontSize="10" groupByStrand="false" height="82" id="https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/ncbiRefSeqSelect.txt.gz" name="Refseq Select" visible="true"/>
+    </Panel>
+    <PanelLayout dividerFractions="0.6"/>
+    <HiddenAttributes>
+        <Attribute name="DATA FILE"/>
+        <Attribute name="DATA TYPE"/>
+        <Attribute name="NAME"/>
+    </HiddenAttributes>
+</Session>

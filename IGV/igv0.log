@@ -1,0 +1,125 @@
+INFO [Nov 25,2025 15:36] [Main] Startup  IGV Version 2.19.7 10/25/2025 10:32 PM
+INFO [Nov 25,2025 15:36] [Main] Java 21.0.4 (build 21.0.4+7-LTS) 2024-07-16
+INFO [Nov 25,2025 15:36] [Main] Java Vendor: Eclipse Adoptium https://adoptium.net/
+INFO [Nov 25,2025 15:36] [Main] JVM: OpenJDK 64-Bit Server VM Temurin-21.0.4+7   
+INFO [Nov 25,2025 15:36] [Main] OS: Windows 11 10.0 amd64
+INFO [Nov 25,2025 15:36] [Main] IGV Directory: E:\GREAT_Results\igv
+INFO [Nov 25,2025 15:36] [OAuthUtils] Loading Google oAuth properties
+SEVERE [Nov 25,2025 15:36] [CommandListener] java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Unknown Source)
+	at java.base/sun.nio.ch.Net.bind(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.bind(Unknown Source)
+	at java.base/java.net.ServerSocket.bind(Unknown Source)
+	at java.base/java.net.ServerSocket.<init>(Unknown Source)
+	at java.base/java.net.ServerSocket.<init>(Unknown Source)
+	at org.igv/org.broad.igv.batch.CommandListener.run(CommandListener.java:135)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+INFO [Nov 25,2025 15:36] [GenomeManager] Loading genome: https://raw.githubusercontent.com/igvteam/igv-genomes/refs/heads/main/json/hg38.json
+INFO [Nov 25,2025 15:36] [TrackLoader] Loading resource:  https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/ncbiRefSeqSelect.txt.gz
+INFO [Nov 25,2025 15:36] [ShutdownThread] Shutting down
+INFO [Nov 25,2025 16:58] [Main] Startup  IGV Version 2.19.7 10/25/2025 10:32 PM
+INFO [Nov 25,2025 16:58] [Main] Java 21.0.4 (build 21.0.4+7-LTS) 2024-07-16
+INFO [Nov 25,2025 16:58] [Main] Java Vendor: Eclipse Adoptium https://adoptium.net/
+INFO [Nov 25,2025 16:58] [Main] JVM: OpenJDK 64-Bit Server VM Temurin-21.0.4+7   
+INFO [Nov 25,2025 16:58] [Main] OS: Windows 11 10.0 amd64
+INFO [Nov 25,2025 16:58] [Main] IGV Directory: E:\GREAT_Results\igv
+INFO [Nov 25,2025 16:58] [OAuthUtils] Loading Google oAuth properties
+INFO [Nov 25,2025 16:58] [CommandListener] Listening on port 60151
+INFO [Nov 25,2025 16:58] [GenomeManager] Loading genome: https://raw.githubusercontent.com/igvteam/igv-genomes/refs/heads/main/json/hg38.json
+INFO [Nov 25,2025 16:58] [TrackLoader] Loading resource:  https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/ncbiRefSeqSelect.txt.gz
+WARNING [Nov 25,2025 16:58] [HttpUtils] Connection to https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/ncbiRefSeqSelect.txt.gz.tbi failed, retrying with backup host
+SEVERE [Nov 25,2025 16:58] [HttpUtils] Retry failed
+SEVERE [Nov 25,2025 16:58] [HttpUtils] java.io.FileNotFoundException: File not found: https://genome-browser.s3.us-east-1.amazonaws.com/goldenPath/hg38/database/ncbiRefSeqSelect.txt.gz.tbi
+	at org.igv/org.broad.igv.util.HttpUtils.openConnection(HttpUtils.java:860)
+	at org.igv/org.broad.igv.util.HttpUtils.openConnection(HttpUtils.java:897)
+	at org.igv/org.broad.igv.util.HttpUtils.openConnection(HttpUtils.java:658)
+	at org.igv/org.broad.igv.util.HttpUtils.openConnectionHeadOrGet(HttpUtils.java:436)
+	at org.igv/org.broad.igv.util.HttpUtils.resourceAvailable(HttpUtils.java:396)
+	at org.igv/org.broad.igv.util.FileUtils.resourceExists(FileUtils.java:56)
+	at org.igv/org.broad.igv.track.TribbleFeatureSource.getFeatureSource(TribbleFeatureSource.java:104)
+	at org.igv/org.broad.igv.track.TribbleFeatureSource.getFeatureSource(TribbleFeatureSource.java:76)
+	at org.igv/org.broad.igv.track.TrackLoader.loadTribbleFile(TrackLoader.java:473)
+	at org.igv/org.broad.igv.track.TrackLoader.load(TrackLoader.java:242)
+	at org.igv/org.broad.igv.ui.IGV.load(IGV.java:1277)
+	at org.igv/org.broad.igv.feature.genome.GenomeManager.restoreGenomeTracks(GenomeManager.java:258)
+	at org.igv/org.broad.igv.feature.genome.GenomeManager.setCurrentGenome(GenomeManager.java:217)
+	at org.igv/org.broad.igv.feature.genome.GenomeManager.loadGenome(GenomeManager.java:194)
+	at org.igv/org.broad.igv.feature.genome.GenomeManager.loadGenomeById(GenomeManager.java:142)
+	at org.igv/org.broad.igv.ui.IGV$StartupRunnable.run(IGV.java:1981)
+	at org.igv/org.broad.igv.util.LongRunningTask.call(LongRunningTask.java:73)
+	at org.igv/org.broad.igv.util.LongRunningTask.call(LongRunningTask.java:43)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+WARNING [Nov 25,2025 16:58] [HttpUtils] Connection to https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/ncbiRefSeqSelect.txt.gz.idx failed, retrying with backup host
+SEVERE [Nov 25,2025 16:58] [HttpUtils] Retry failed
+SEVERE [Nov 25,2025 16:58] [HttpUtils] java.io.FileNotFoundException: File not found: https://genome-browser.s3.us-east-1.amazonaws.com/goldenPath/hg38/database/ncbiRefSeqSelect.txt.gz.idx
+	at org.igv/org.broad.igv.util.HttpUtils.openConnection(HttpUtils.java:860)
+	at org.igv/org.broad.igv.util.HttpUtils.openConnection(HttpUtils.java:897)
+	at org.igv/org.broad.igv.util.HttpUtils.openConnection(HttpUtils.java:658)
+	at org.igv/org.broad.igv.util.HttpUtils.openConnectionHeadOrGet(HttpUtils.java:436)
+	at org.igv/org.broad.igv.util.HttpUtils.resourceAvailable(HttpUtils.java:396)
+	at org.igv/org.broad.igv.util.stream.IGVUrlHelper.exists(IGVUrlHelper.java:85)
+	at htsjdk@4.3.0-module/htsjdk.tribble.util.ParsingUtils.resourceExists(ParsingUtils.java:421)
+	at htsjdk@4.3.0-module/htsjdk.tribble.TribbleIndexedFeatureReader.loadIndex(TribbleIndexedFeatureReader.java:164)
+	at htsjdk@4.3.0-module/htsjdk.tribble.TribbleIndexedFeatureReader.hasIndex(TribbleIndexedFeatureReader.java:230)
+	at htsjdk@4.3.0-module/htsjdk.tribble.TribbleIndexedFeatureReader.getSequenceNames(TribbleIndexedFeatureReader.java:223)
+	at org.igv/org.broad.igv.track.TribbleFeatureSource.<init>(TribbleFeatureSource.java:181)
+	at org.igv/org.broad.igv.track.TribbleFeatureSource$NonIndexedFeatureSource.<init>(TribbleFeatureSource.java:326)
+	at org.igv/org.broad.igv.track.TribbleFeatureSource.getFeatureSource(TribbleFeatureSource.java:138)
+	at org.igv/org.broad.igv.track.TribbleFeatureSource.getFeatureSource(TribbleFeatureSource.java:76)
+	at org.igv/org.broad.igv.track.TrackLoader.loadTribbleFile(TrackLoader.java:473)
+	at org.igv/org.broad.igv.track.TrackLoader.load(TrackLoader.java:242)
+	at org.igv/org.broad.igv.ui.IGV.load(IGV.java:1277)
+	at org.igv/org.broad.igv.feature.genome.GenomeManager.restoreGenomeTracks(GenomeManager.java:258)
+	at org.igv/org.broad.igv.feature.genome.GenomeManager.setCurrentGenome(GenomeManager.java:217)
+	at org.igv/org.broad.igv.feature.genome.GenomeManager.loadGenome(GenomeManager.java:194)
+	at org.igv/org.broad.igv.feature.genome.GenomeManager.loadGenomeById(GenomeManager.java:142)
+	at org.igv/org.broad.igv.ui.IGV$StartupRunnable.run(IGV.java:1981)
+	at org.igv/org.broad.igv.util.LongRunningTask.call(LongRunningTask.java:73)
+	at org.igv/org.broad.igv.util.LongRunningTask.call(LongRunningTask.java:43)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+WARNING [Nov 25,2025 16:58] [HttpUtils] Connection to https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/ncbiRefSeqSelect.txt.gz.idx.gz failed, retrying with backup host
+SEVERE [Nov 25,2025 16:58] [HttpUtils] Retry failed
+SEVERE [Nov 25,2025 16:58] [HttpUtils] java.io.FileNotFoundException: File not found: https://genome-browser.s3.us-east-1.amazonaws.com/goldenPath/hg38/database/ncbiRefSeqSelect.txt.gz.idx.gz
+	at org.igv/org.broad.igv.util.HttpUtils.openConnection(HttpUtils.java:860)
+	at org.igv/org.broad.igv.util.HttpUtils.openConnection(HttpUtils.java:897)
+	at org.igv/org.broad.igv.util.HttpUtils.openConnection(HttpUtils.java:658)
+	at org.igv/org.broad.igv.util.HttpUtils.openConnectionHeadOrGet(HttpUtils.java:436)
+	at org.igv/org.broad.igv.util.HttpUtils.resourceAvailable(HttpUtils.java:396)
+	at org.igv/org.broad.igv.util.stream.IGVUrlHelper.exists(IGVUrlHelper.java:85)
+	at htsjdk@4.3.0-module/htsjdk.tribble.util.ParsingUtils.resourceExists(ParsingUtils.java:421)
+	at htsjdk@4.3.0-module/htsjdk.tribble.TribbleIndexedFeatureReader.loadIndex(TribbleIndexedFeatureReader.java:169)
+	at htsjdk@4.3.0-module/htsjdk.tribble.TribbleIndexedFeatureReader.hasIndex(TribbleIndexedFeatureReader.java:230)
+	at htsjdk@4.3.0-module/htsjdk.tribble.TribbleIndexedFeatureReader.getSequenceNames(TribbleIndexedFeatureReader.java:223)
+	at org.igv/org.broad.igv.track.TribbleFeatureSource.<init>(TribbleFeatureSource.java:181)
+	at org.igv/org.broad.igv.track.TribbleFeatureSource$NonIndexedFeatureSource.<init>(TribbleFeatureSource.java:326)
+	at org.igv/org.broad.igv.track.TribbleFeatureSource.getFeatureSource(TribbleFeatureSource.java:138)
+	at org.igv/org.broad.igv.track.TribbleFeatureSource.getFeatureSource(TribbleFeatureSource.java:76)
+	at org.igv/org.broad.igv.track.TrackLoader.loadTribbleFile(TrackLoader.java:473)
+	at org.igv/org.broad.igv.track.TrackLoader.load(TrackLoader.java:242)
+	at org.igv/org.broad.igv.ui.IGV.load(IGV.java:1277)
+	at org.igv/org.broad.igv.feature.genome.GenomeManager.restoreGenomeTracks(GenomeManager.java:258)
+	at org.igv/org.broad.igv.feature.genome.GenomeManager.setCurrentGenome(GenomeManager.java:217)
+	at org.igv/org.broad.igv.feature.genome.GenomeManager.loadGenome(GenomeManager.java:194)
+	at org.igv/org.broad.igv.feature.genome.GenomeManager.loadGenomeById(GenomeManager.java:142)
+	at org.igv/org.broad.igv.ui.IGV$StartupRunnable.run(IGV.java:1981)
+	at org.igv/org.broad.igv.util.LongRunningTask.call(LongRunningTask.java:73)
+	at org.igv/org.broad.igv.util.LongRunningTask.call(LongRunningTask.java:43)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+INFO [Nov 25,2025 16:59] [TrackLoader] Loading resource:  \\wsl.localhost\Ubuntu\home\shobita\GSE104247\visualization\USF2.bw
+INFO [Nov 25,2025 16:59] [TrackLoader] Loading resource:  \\wsl.localhost\Ubuntu\home\shobita\GSE104247\visualization\INPUT.bw
+INFO [Nov 25,2025 16:59] [TrackLoader] Loading resource:  \\wsl.localhost\Ubuntu\home\shobita\GSE104247\visualization\USF2_vs_INPUT_log2.bw
+INFO [Nov 25,2025 17:00] [TrackLoader] Loading resource:  \\wsl.localhost\Ubuntu\home\shobita\GSE104247\bam\USF2_peaks.bed
