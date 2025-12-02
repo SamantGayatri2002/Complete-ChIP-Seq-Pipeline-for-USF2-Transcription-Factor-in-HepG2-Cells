@@ -1,0 +1,107 @@
+
+SUMMARISING RUN PARAMETERS
+==========================
+Input filename: /home/shobita/GSE104247/raw/INPUT.fastq.gz
+Trimming mode: single-end
+Trim Galore version: 0.6.10
+Cutadapt version: 5.2
+Python version: could not detect
+Number of cores used for trimming: 4
+Quality Phred score cutoff: 20
+Quality encoding type selected: ASCII+33
+Using Illumina adapter for trimming (count: 2439). Second best hit was Nextera (count: 3)
+Adapter sequence: 'AGATCGGAAGAGC' (Illumina TruSeq, Sanger iPCR; auto-detected)
+Maximum trimming error rate: 0.1 (default)
+Minimum required adapter overlap (stringency): 1 bp
+Minimum required sequence length before a sequence gets removed: 20 bp
+Running FastQC on the data once trimming has completed
+Output file will be GZIP compressed
+
+
+This is cutadapt 5.2 with Python 3.10.19
+Command line parameters: -j 4 -e 0.1 -q 20 -O 1 -a AGATCGGAAGAGC /home/shobita/GSE104247/raw/INPUT.fastq.gz
+Processing single-end reads on 4 cores ...
+
+=== Summary ===
+
+Total reads processed:              41,904,860
+Reads with adapters:                14,858,735 (35.5%)
+Reads written (passing filters):    41,904,860 (100.0%)
+
+Total basepairs processed: 2,095,243,000 bp
+Quality-trimmed:              68,725,731 bp (3.3%)
+Total written (filtered):  2,001,870,233 bp (95.5%)
+
+=== Adapter 1 ===
+
+Sequence: AGATCGGAAGAGC; Type: regular 3'; Length: 13; Trimmed: 14858735 times
+
+Minimum overlap: 1
+No. of allowed errors:
+1-9 bp: 0; 10-13 bp: 1
+
+Bases preceding removed adapters:
+  A: 31.0%
+  C: 29.1%
+  G: 19.5%
+  T: 20.3%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+1	10335559	10476215.0	0	10335559
+2	3001640	2619053.8	0	3001640
+3	907611	654763.4	0	907611
+4	230781	163690.9	0	230781
+5	79895	40922.7	0	79895
+6	42949	10230.7	0	42949
+7	32689	2557.7	0	32689
+8	27987	639.4	0	27987
+9	25751	159.9	0	25013 738
+10	22451	40.0	1	21313 1138
+11	18814	10.0	1	18143 671
+12	16044	2.5	1	15592 452
+13	13261	0.6	1	12884 377
+14	11642	0.6	1	11285 357
+15	9789	0.6	1	9477 312
+16	8265	0.6	1	7993 272
+17	6939	0.6	1	6716 223
+18	5876	0.6	1	5633 243
+19	4684	0.6	1	4481 203
+20	4143	0.6	1	3967 176
+21	3308	0.6	1	3153 155
+22	2936	0.6	1	2792 144
+23	2422	0.6	1	2281 141
+24	2509	0.6	1	2349 160
+25	1922	0.6	1	1773 149
+26	2016	0.6	1	1882 134
+27	1730	0.6	1	1591 139
+28	1837	0.6	1	1700 137
+29	1400	0.6	1	1305 95
+30	1894	0.6	1	1735 159
+31	7317	0.6	1	7096 221
+32	1541	0.6	1	1444 97
+33	1108	0.6	1	1044 64
+34	1588	0.6	1	1491 97
+35	1256	0.6	1	1193 63
+36	2660	0.6	1	2551 109
+37	1081	0.6	1	1018 63
+38	1549	0.6	1	1475 74
+39	967	0.6	1	903 64
+40	2114	0.6	1	2039 75
+41	657	0.6	1	614 43
+42	699	0.6	1	659 40
+43	509	0.6	1	469 40
+44	600	0.6	1	564 36
+45	491	0.6	1	435 56
+46	921	0.6	1	861 60
+47	539	0.6	1	486 53
+48	451	0.6	1	410 41
+49	177	0.6	1	113 64
+50	3766	0.6	1	395 3371
+
+RUN STATISTICS FOR INPUT FILE: /home/shobita/GSE104247/raw/INPUT.fastq.gz
+=============================================
+41904860 sequences processed in total
+Sequences removed because they became shorter than the length cutoff of 20 bp:	1269266 (3.0%)
+
