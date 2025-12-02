@@ -1,4 +1,4 @@
-# Complete-ChIP-Seq-Pipeline-for-USF2-Transcription-Factor-in-HepG2-Cells
+# 🧬 Complete-ChIP-Seq-Pipeline-for-USF2-Transcription-Factor-in-HepG2-Cells
 
 ![ChIP-Seq](https://img.shields.io/badge/Workflow-ChIP--Seq-blueviolet)
 ![TF: USF2](https://img.shields.io/badge/Target-USF2-orange)
