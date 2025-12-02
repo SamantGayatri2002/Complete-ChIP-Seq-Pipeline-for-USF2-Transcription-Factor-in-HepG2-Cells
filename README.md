@@ -13,16 +13,17 @@
 ![Python](https://img.shields.io/badge/Python-3.10-yellow)
 
 
+<br>
 
 ## 🧭 **Project Summary**
 
-Chromatin Immunoprecipitation followed by sequencing (ChIP-Seq) enables genome-wide mapping of protein–DNA interactions.
-This repository provides a **fully reproducible ChIP-Seq analysis pipeline** for the transcription factor **USF2** in **HepG2** cells, leveraging raw sequencing data from **GSE104247**.
-All analyses—including alignment, peak calling, motif discovery, GREAT enrichment, and visualization—were performed once, and the entire workflow is made reproducible through a preserved **conda environment**, standardized folder structure, and documented scripts.
+Chromatin Immunoprecipitation followed by sequencing (ChIP-Seq) enables genome-wide mapping of protein–DNA interactions.  This repository provides a **fully reproducible ChIP-Seq analysis pipeline** for the transcription factor **USF2** in **HepG2** cells, leveraging raw sequencing data from **GSE104247**. All analyses—including alignment, peak calling, motif discovery, GREAT enrichment, and visualization—were performed once, and the entire workflow is made reproducible through a preserved **conda environment**, standardized folder structure, and documented scripts.
 
 ---
 
-## 📘 **This pipeline maily follows the below steps**
+<br>
+
+# 📘 **This pipeline mainly follows the below steps**
 
 ```
                ┌───────────────┐
@@ -64,45 +65,35 @@ All analyses—including alignment, peak calling, motif discovery, GREAT enrichm
 
 ```
 
+<br>
 
 ---
 
-# 📁 **Repository Structure**
+# 🔬 Biological Background
+
+USF2 (Upstream Stimulatory Factor 2) is a basic helix–loop–helix (bHLH) transcription factor that recognizes and binds the E-box motif (CACGTG) across the genome. Through this binding, USF2 regulates genes involved in metabolism, cell-cycle progression, and stress-response pathways. In HepG2 liver cells, USF2 plays a role in maintaining transcriptional homeostasis and modulating regulatory elements near promoters and enhancers.
+
+---
+<br>
+
+
+# 📁 Repository Structure
 
 ```
 ChIP-Seq-USF2-Analysis/
-│
-├── raw/                         # FASTQ files downloaded from SRA
-├── trim/                        # Trim Galore + FastQC outputs
-│
-├── bam/                         # Alignment, sorted BAMs, peaks, annotation
-│   ├── USF2_clean.bam
-│   ├── INPUT_clean.bam
-│   ├── USF2_peaks.bed
-│   ├── USF2_peak_annotation.txt
-│   └── USF2_summits_200bp.bed
-│
-├── motifs_USF2/                 # HOMER motif output (logos, PWM, HTML reports)
-│
-├── great/                       # GREAT 200bp summit-centered regions + results
-│
-├── visualization/               # bigWigs, heatmap, profile plots
-│   ├── USF2.bw
-│   ├── INPUT.bw
-│   ├── USF2_vs_INPUT_log2.bw
-│   ├── USF2_heatmap.png
-│   └── USF2_profile.png
-│
-├── scripts/                     # All pipeline scripts (optional for re-running)
-│   ├── chipseq_visualization_full.sh
-│   └── stage-wise scripts
-│
-├── environment.yml              # Exported exact conda environment (reproducibility)
-│
-├── docs/                        # Workflow diagrams / PDF reports (optional)
-│
-└── README.md
+├── scripts/                 # It contain the Entire Pipeline Explained stepwise with commands and aslo one bash script to automate the visualisation outputs
+├── trim/                    # It has Trim Galore + FastQC outputs
+├── bam/                     # It has alignment outputs like cleaned/sorted?indexed BAMs, Deduplicated output files, Flagstat reports,  peak files etc..
+├── visualization/           # It has bigWig files, heatmaps, profile plots
+├── IGV/                     # It has the saved snpshots of IGV results
+├── motifs_USF2/             # It has HOMER motif results (logos, PWMs, HTML), Known as well as De-Novo motif files
+├── GREAT_Results/           # GREAT output for summit-centered regions
+├── docs/                    # It has Additional informations, Enhanced pipeline with outcomes, IGV Guide, Answers to some biological questions
+├── environment.yml          # It has conda environment used for the analysis, it can be used for reproducing the same pipeline
+└── README.md                # It has Overview about the current repository
+
 ```
+<br>
 
 ---
 
@@ -118,28 +109,21 @@ ChIP-Seq-USF2-Analysis/
 
 ---
 
-# 🔬 **Biological Background and the Outcome of this pipeline**
+<br>
 
-🔬 Biological Background & Results Summary
+# **🔎 Outputs & interpretation summary**
 
-USF2 (Upstream Stimulatory Factor 2) is a bHLH transcription factor that binds the canonical E-box (CACGTG) motif.<br>
-This pipeline reveals:
+Typical outputs you will find (or produce) in this pipeline:
 
-Key Biological Insights:
+1. *.bw (bigWig): normalized coverage for USF2 and Input (visualization / IGV).
+2. *_peaks.bed: HOMER-called peak sets — use for motif analysis and GREAT.
+3. motifs_USF2/: HOMER motif reports (expected enrichment of E-box / CACGTG pattern for USF2).
+4. GREAT_Results/: ontology and regulatory enrichment for summit-centered regions.
+5. visualization/: heatmaps and profile plots (aggregate signal around TSS/summits). 
 
-* Strong enrichment near promoters/TSS regions
-* ~20,000 high-confidence summit-centered peaks
-* Strongest peak near CDK4 promoter
-* Extremely enriched USF family motif
-
-GREAT results show involvement in:
-
-* liver regeneration
-* metabolic regulation
-* transcriptional programs
-* cell cycle regulation
 
 ---
+<br>
 
 # 🔄 Reproducibility — How to Re-run the Exact Pipeline
 
@@ -172,9 +156,19 @@ This restores the original pipeline environment including:
 * sra-tools
 * Python 3.10
 
+---
+<br>
 
+## Reproducibility notes & best practices
+
+- Always use the provided environment.yml to recreate the exact software environment (or freeze packages to explicit versions). 
+GitHub
+- Edit scripts to point to your local reference genome (hg38 FASTA and index) and the correct chromosome sizes for deepTools.
+- Keep intermediate files (trimmed FASTQ, BAMs) organized per sample — it helps debugging and re-running individual steps.
+- For peak calling, compare results with at least one other caller (e.g., MACS2) if you plan a publication; HOMER is the pipeline used here but cross-validation is recommended.
 
 ---
+<br>
 
 # 🔗 Direct File Access 
 
@@ -202,6 +196,7 @@ This restores the original pipeline environment including:
 * [`scripts/`](scripts/)
 
 ---
+<br>
 
 
 # 🧬 **Key Scientific Outputs**
@@ -238,6 +233,7 @@ Enriched pathways include:
 * transcriptional regulatory modules
 
 ---
+<br>
 
 # ⚠️ **Limitations**
 
@@ -248,6 +244,7 @@ Enriched pathways include:
 
 
 ---
+<br>
 
 # 🚀 **Future Directions**
 
@@ -258,6 +255,7 @@ Enriched pathways include:
 * MultiQC for QC aggregation
 
 ---
+<br>
 
 # 👩‍🔬 Author
 
