@@ -24,18 +24,45 @@ All analyses—including alignment, peak calling, motif discovery, GREAT enrichm
 
 ## 📘 **This pipeline maily follows the below steps**
 
+```
+               ┌───────────────┐
+               │   Raw Data    │
+               │  (SRA → FASTQ)│
+               └───────┬───────┘
+                       │
+               ┌───────▼───────┐
+               │   Trimming    │ (Trim Galore)
+               └───────┬───────┘
+                       │
+               ┌───────▼───────┐
+               │   Alignment   │ (BWA-MEM to hg38)
+               └───────┬───────┘
+                       │
+          ┌────────────▼────────────┐
+          │    BAM Processing       │
+          │ sorting • dedup • filter│
+          │ blacklist removal       │
+          └────────────┬────────────┘
+                       │
+               ┌───────▼───────┐
+               │  Peak Calling │ (HOMER)
+               └───────┬───────┘
+                       │
+        ┌──────────────▼──────────────┐
+        │  Motif Analysis (HOMER)     │
+        └──────────────┬──────────────┘
+                       │
+        ┌──────────────▼──────────────┐
+        │  Functional Enrichment      │ (GREAT)
+        └──────────────┬──────────────┘
+                       │
+       ┌───────────────▼────────────────┐
+       │  deepTools Visualization       │
+       │ bigWigs • heatmap • profile    │
+       └────────────────────────────────┘
 
-* Raw data acquisition (SRA → FASTQ)
-* Read QC, filtering, and adapter trimming
-* Alignment to hg38 (BWA-MEM)
-* BAM processing, sorting, deduplication, blacklist removal
-* Peak calling using HOMER
-* Peak annotation using HOMER (hg38)
-* Motif discovery (known + de novo)
-* GREAT functional enrichment
-* Genome-wide signal visualization using deepTools
-* IGV-ready track generation
-* Biological interpretation of USF2 function
+
+```
 
 
 ---
@@ -93,39 +120,45 @@ ChIP-Seq-USF2-Analysis/
 
 # 🔬 **Biological Background and the Outcome of this pipeline**
 
-USF2 (Upstream Stimulatory Factor 2) is a basic helix-loop-helix transcription factor that binds the canonical **E-box motif (CACGTG)**.
-It regulates:
+🔬 Biological Background & Results Summary
 
-* metabolic processes
-* oxidative and stress-response pathways
-* cell-cycle progression (e.g., CDK4)
-* chromatin regulatory programs
+USF2 (Upstream Stimulatory Factor 2) is a bHLH transcription factor that binds the canonical E-box (CACGTG) motif.<br>
+This pipeline reveals:
 
-Analysis revealed:
+Key Biological Insights:
 
-* strong promoter-TSS binding
-* enriched E-box motifs (~71% of peaks)
-* ~20,000 summit-centered regulatory regions
-* biologically meaningful GREAT enrichment terms
+* Strong enrichment near promoters/TSS regions
+* ~20,000 high-confidence summit-centered peaks
+* Strongest peak near CDK4 promoter
+* Extremely enriched USF family motif
+
+GREAT results show involvement in:
+
+* liver regeneration
+* metabolic regulation
+* transcriptional programs
+* cell cycle regulation
 
 ---
 
-# 🔄 **Reproducibility Guide**
+# 🔄 Reproducibility — How to Re-run the Exact Pipeline
 
-## ✅ 1. Clone Repository
-
+## 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/<your-username>/ChIP-Seq-USF2-Analysis.git
-cd ChIP-Seq-USF2-Analysis
+git clone https://github.com/SamantGayatri2002/Complete-ChIP-Seq-Pipeline-for-USF2-Transcription-Factor-in-HepG2-Cells.git
+cd Complete-ChIP-Seq-Pipeline-for-USF2-Transcription-Factor-in-HepG2-Cells
 ```
 
 
-## ✅ 2. Create the Identical Conda Environment
-
+## 2️⃣ Create identical conda environment
 ```bash
 conda env create -f environment.yml
 conda activate homer_env
 ```
+
+## 3️⃣ Run the Pipeline
+
+All scripts are stored under `scripts/` folder, Run the commands inside the activated environment.
 
 This restores the original pipeline environment including:
 
@@ -140,13 +173,36 @@ This restores the original pipeline environment including:
 * Python 3.10
 
 
-## ✅ 3. Run the Pipeline 
-
-All scripts are stored under `scripts/` folder, Run the commands inside the activated environment.
-
-
 
 ---
+
+# 🔗 Direct File Access 
+
+### **Peak Files**
+
+* [`USF2_peaks.bed`](bam/USF2_peaks.bed)
+* [`USF2_summits_200bp.bed`](bam/USF2_summits_200bp.bed)
+
+### **Visualization**
+
+* [`USF2_vs_INPUT_log2.bw`](visualization/USF2_vs_INPUT_log2.bw)
+* [`USF2_heatmap.png`](visualization/USF2_heatmap.png)
+* [`USF2_profile.png`](visualization/USF2_profile.png)
+
+### **Motifs**
+
+* [`motifs_USF2/`](motifs_USF2/)
+
+### **GREAT Output**
+
+* [`great/`](great/)
+
+### **Scripts**
+
+* [`scripts/`](scripts/)
+
+---
+
 
 # 🧬 **Key Scientific Outputs**
 
@@ -183,30 +239,13 @@ Enriched pathways include:
 
 ---
 
-# 🔗 **Important Direct Links **
+# ⚠️ **Limitations**
 
-### 📁 **Peak Files**
+* Analysis based on single ChIP and Input sample
+* HOMER is optimized for TF peaks; consider MACS2 comparison
+* GREAT hypergeometric saturation for large peak sets → binomial mode recommended
+* WSL2 memory constraints required optimized commands
 
-* `bam/USF2_peaks.bed`
-* `bam/USF2_summits_200bp.bed`
-
-### 📁 **Visualization**
-
-* `visualization/USF2_vs_INPUT_log2.bw`
-* `visualization/USF2_heatmap.png`
-* `visualization/USF2_profile.png`
-
-### 📁 **Annotation**
-
-* `bam/USF2_peak_annotation.txt`
-
-### 📁 **Motifs**
-
-* `motifs_USF2/`
-
-### 📁 **GREAT Results**
-
-* `great/`
 
 ---
 
@@ -216,35 +255,18 @@ Enriched pathways include:
 * Build a Docker/Singularity container for full environment encapsulation
 * Add additional replicates or multi-sample comparison
 * Integrate RNA-Seq to validate TF target regulation
-* Develop a MultiQC dashboard for QC aggregation
+* MultiQC for QC aggregation
 
 ---
 
-# ⚠️ **Limitations**
-
-* Analysis based on single ChIP and Input sample
-* HOMER is optimized for TF peaks; consider MACS2 comparison
-* GREAT hypergeometric saturation for large peak sets → binomial mode recommended
-* WSL2 memory constraints required optimized commands
-
----
-
-# 👩‍🔬 **Author**
+# 👩‍🔬 Author
 
 **Gayatri Sunil Samant**<br>
-Bioinformatics Intern at **Vizzhy**, Banglore<br>
-India
+Bioinformatics Intern — Vizzhy, Bangalore
 
-📧 **Email:** *gayatrisamant05@gmail.com*<br>
-🌐 **GitHub:** *https://github.com/SamantGayatri2002*
+📧 *[gayatrisamant05@gmail.com](mailto:gayatrisamant05@gmail.com)*<br>
+🌐 GitHub: [https://github.com/SamantGayatri2002](https://github.com/SamantGayatri2002)
 
----
 
-# 📄 **Citation**
-
-If you use this repository, please cite:
-
-**Dataset:** GEO Series **GSE104247**<br>
-**Tools:** HOMER, deepTools, BWA, Samtools, Picard, bedtools
 
 
