@@ -1,0 +1,1 @@
+cmd = USF2_peaks.bed hg38 ../motifs_USF2/ -size 200
