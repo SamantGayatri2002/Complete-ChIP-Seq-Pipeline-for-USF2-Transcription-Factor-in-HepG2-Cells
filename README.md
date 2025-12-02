@@ -22,7 +22,7 @@ All analyses—including alignment, peak calling, motif discovery, GREAT enrichm
 
 ---
 
-## 📘 **This pipelinmaily follows the below steps**
+## 📘 **This pipeline maily follows the below steps**
 
 
 * Raw data acquisition (SRA → FASTQ)
@@ -91,7 +91,7 @@ ChIP-Seq-USF2-Analysis/
 
 ---
 
-# 🔬 **Biological Background and Outcome**
+# 🔬 **Biological Background and the Outcome of this pipeline**
 
 USF2 (Upstream Stimulatory Factor 2) is a basic helix-loop-helix transcription factor that binds the canonical **E-box motif (CACGTG)**.
 It regulates:
